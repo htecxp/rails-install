@@ -31,9 +31,15 @@ gem install bundler
 
 echo "installing rails"
 gem install rails -v 6.0.3.4
+gem install foreman
 
 echo "installing PostgreSQL"
 sudo apt install postgresql-12 libpq-dev -y
 echo "creating PG user"
 sudo -u postgres createuser user -s
 
+echo "install REDIS"
+sudo apt install redis-server
+
+"Fixing Listen error"
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
