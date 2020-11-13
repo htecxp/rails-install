@@ -33,4 +33,7 @@ echo "installing rails"
 gem install rails -v 6.0.3.4
 
 echo "installing PostgreSQL"
-sudo apt install postgresql-11 libpq-dev
+sudo apt install postgresql-12 libpq-dev -y
+echo "creating PG user"
+sudo -u postgres createuser user -s
+
